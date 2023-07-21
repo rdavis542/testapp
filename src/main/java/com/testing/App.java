@@ -4,17 +4,11 @@ import javax.crypto.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args ) throws Exception
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "\n" + "This app will encrypt this string and push it to console!" + "\n" );
 
         Logger logger = LogManager.getRootLogger();
     	logger.trace("Configuration File Defined To Be :: "+System.getProperty("log4j.configurationFile"));
@@ -28,7 +22,7 @@ public class App
 
         cipher.init(Cipher.ENCRYPT_MODE, pair.getPublic());
 
-        byte[] input = "This app will encrypt this scring and push it to a log file".getBytes();
+        byte[] input = "This app will encrypt this string and push it to console!".getBytes();
         cipher.update(input);
 
         byte[] cipherText = cipher.doFinal();
